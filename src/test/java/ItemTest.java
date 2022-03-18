@@ -1,11 +1,8 @@
 // John Murray
+// Eilis Casey
 // Unit tests for Item class
 import static org.junit.jupiter.api.Assertions.*;
-
-import csc4700.CartItem;
 import csc4700.Item;
-import csc4700.ShoppingCart;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ItemTest {
@@ -19,20 +16,14 @@ public class ItemTest {
 
     @Test
     public void EqualsTestPassNull() {
-        // Test False when passing null
+        // Test false when passing null
         Item item = new Item();
         assertFalse(item.equals(null));
     }
 
-//    @Test
-//    public void WrongClassEqualsTest() {
-//        Item item = new Item();
-//        ShoppingCart cart = new ShoppingCart();
-//        assertFalse(item.equals(cart));
-//    }
-
     @Test
     public void WrongClassEqualsTest() {
+        // Test false when classes not same
         Item item = new Item();
         class TestClass {}
         TestClass test = new TestClass();
@@ -41,6 +32,7 @@ public class ItemTest {
 
     @Test
     public void EqualsTest() {
+        // Test false when two Item objects are not equal
         Item item = new Item();
         item.setName("one");
         Item item2 = new Item();
@@ -59,6 +51,7 @@ public class ItemTest {
 
     @Test
     public void HashCodeNameTest() {
+        // Verify hashCode
         Item item = new Item();
         item.setName("item1");
         String name = item.getName();
@@ -67,6 +60,7 @@ public class ItemTest {
 
     @Test
     public void SetGetCostTest() {
+        // Verify setCost and getCost
         Item item = new Item();
         int cost = 5;
         item.setCost(cost);
@@ -75,10 +69,10 @@ public class ItemTest {
 
     @Test
     public void SetGetDescriptionTest() {
+        // Verify setDescription and getDescription
         Item item = new Item();
         String description = "I am an item";
         item.setDescription(description);
         assertEquals(description, item.getDescription());
     }
-
 }
