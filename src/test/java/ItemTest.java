@@ -8,21 +8,21 @@ import org.junit.jupiter.api.Test;
 public class ItemTest {
 
     @Test
-    public void EqualsTestPassSelf() {
+    public void equalsTestPassSelf() {
         // Test for correct object pass
         Item item = new Item();
         assertTrue(item.equals(item));
     }
 
     @Test
-    public void EqualsTestPassNull() {
+    public void equalsTestPassNull() {
         // Test false when passing null
         Item item = new Item();
         assertFalse(item.equals(null));
     }
 
     @Test
-    public void WrongClassEqualsTest() {
+    public void wrongClassEqualsTest() {
         // Test false when classes not same
         Item item = new Item();
         class TestClass {}
@@ -31,7 +31,7 @@ public class ItemTest {
     }
 
     @Test
-    public void EqualsTest() {
+    public void equalsTest() {
         // Test false when two Item objects are not equal
         Item item = new Item();
         item.setName("one");
@@ -41,7 +41,7 @@ public class ItemTest {
     }
 
     @Test
-    public void SetGetNameTest() {
+    public void setGetNameTest() {
         // Verify setName and getName
         Item item = new Item();
         item.setName("item1");
@@ -50,7 +50,7 @@ public class ItemTest {
     }
 
     @Test
-    public void HashCodeNameTest() {
+    public void hashCodeNameTest() {
         // Verify hashCode
         Item item = new Item();
         item.setName("item1");
@@ -59,7 +59,7 @@ public class ItemTest {
     }
 
     @Test
-    public void SetGetCostTest() {
+    public void setGetCostTest() {
         // Verify setCost and getCost
         Item item = new Item();
         int cost = 5;
@@ -68,7 +68,7 @@ public class ItemTest {
     }
 
     @Test
-    public void SetGetDescriptionTest() {
+    public void setGetDescriptionTest() {
         // Verify setDescription and getDescription
         Item item = new Item();
         String description = "I am an item";
