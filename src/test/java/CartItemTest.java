@@ -124,7 +124,7 @@ public class CartItemTest {
    public void testHashCodePassDifferent(){
       CartItem boats = new CartItem(sailboat);
       sailboat.setName("Eilis");
-      Item car =new Item();
+      Item car = new Item();
       car.setName("jack");
       CartItem vehicle = new CartItem(car);
       assertNotEquals(vehicle.hashCode(),boats.hashCode());
