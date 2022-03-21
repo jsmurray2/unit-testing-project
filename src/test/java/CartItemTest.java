@@ -131,6 +131,12 @@ public class CartItemTest {
    }
 
    @Test
+   public void testHashCodeNull(){
+      CartItem boats = new CartItem(null);
+      assertEquals(boats.hashCode(),0);
+   }
+
+   @Test
    public void testSetGetItem(){
       CartItem boats = new CartItem(sailboat);
       Item motorboat = new Item();
