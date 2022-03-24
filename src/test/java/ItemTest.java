@@ -35,8 +35,10 @@ public class ItemTest {
         // Test false when two Item objects are not equal
         Item item = new Item();
         item.setName("one");
+        assertEquals("one", item.getName());
         Item item2 = new Item();
         item2.setName("name");
+        assertEquals("name", item2.getName());
         assertFalse(item.equals(item2));
     }
 
@@ -45,8 +47,8 @@ public class ItemTest {
         // Verify setName and getName
         Item item = new Item();
         item.setName("item1");
-        String name = item.getName();
-        assertEquals("item1", name);
+        assertEquals("item1", item.getName());
+        assertEquals("item1", item.getName());
     }
 
     @Test
@@ -54,7 +56,9 @@ public class ItemTest {
         // Verify hashCode
         Item item = new Item();
         item.setName("item1");
+        assertEquals("item1", item.getName());
         String name = item.getName();
+        assertEquals("item1", name);
         assertEquals(name.hashCode(), item.hashCode());
     }
 
