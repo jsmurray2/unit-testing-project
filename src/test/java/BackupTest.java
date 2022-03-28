@@ -2,18 +2,14 @@
 // Eilis Casey
 // Unit tests for Backup class
 import static org.junit.jupiter.api.Assertions.*;
-
 import csc4700.Backup;
 import csc4700.CartItem;
 import csc4700.Item;
 import csc4700.ShoppingCart;
 import csc4700.exceptions.SerializedFormatException;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -166,5 +162,4 @@ public class BackupTest {
             location.delete();
         }
     }
-
 }
