@@ -6,6 +6,7 @@ import csc4700.Item;
 import csc4700.ShoppingCart;
 import csc4700.CartItem;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +15,13 @@ public class ShoppingCartTest {
 
     @Test
     public void testAddItemNull(){
-        ShoppingCart boats = new ShoppingCart();
-        try{
-           boats.addItem(null);
-           fail("Expected error");
-        } catch (NullPointerException e){
-            //Expected
-        }
+        assertThrows(NullPointerException.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                ShoppingCart boats = new ShoppingCart();
+                boats.addItem(null);
+            }
+        });
     }
 
     @Test
@@ -67,13 +68,13 @@ public class ShoppingCartTest {
 
     @Test
     public void testDeleteItemNull(){
-        ShoppingCart boats = new ShoppingCart();
-        try{
-            boats.deleteItem(null);
-            fail("Expected error");
-        }catch(NullPointerException e){
-            //Expected
-        }
+        assertThrows(NullPointerException.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                ShoppingCart boats = new ShoppingCart();
+                boats.deleteItem(null);
+            }
+        });
     }
 
     @Test
