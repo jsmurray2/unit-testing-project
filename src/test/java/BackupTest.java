@@ -1,6 +1,6 @@
 // John Murray
 // Eilis Casey
-// Unit tests for Item class
+// Unit tests for Backup class
 import static org.junit.jupiter.api.Assertions.*;
 
 import csc4700.Backup;
