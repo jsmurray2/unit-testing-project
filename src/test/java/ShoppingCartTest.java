@@ -7,14 +7,13 @@ import csc4700.ShoppingCart;
 import csc4700.CartItem;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShoppingCartTest {
 
     @Test
-    public void testAddItemNull(){
+    public void testAddItemNull() {
         assertThrows(NullPointerException.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -25,7 +24,7 @@ public class ShoppingCartTest {
     }
 
     @Test
-    public void testAddItemFirstItem(){
+    public void testAddItemFirstItem() {
         Item item = new Item();
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.addItem(item);
@@ -37,7 +36,7 @@ public class ShoppingCartTest {
     }
 
     @Test
-    public void testAddItemMultiple(){
+    public void testAddItemMultiple() {
         ShoppingCart boats = new ShoppingCart();
         Item sailboat = new Item();
         boats.addItem(sailboat);
@@ -51,23 +50,24 @@ public class ShoppingCartTest {
     }
 
     @Test
-    public void testDeleteItemNotPresent(){
+    public void testDeleteItemNotPresent() {
         ShoppingCart boats = new ShoppingCart();
         Item sailboat = new Item();
         sailboat.setName("Eilis");
+        assertEquals("Eilis", sailboat.getName());
         Item steamboat = new Item();
         steamboat.setName("Jack");
+        assertEquals("Jack", steamboat.getName());
         boats.addItem(steamboat);
         CartItem testSteamBoat = boats.findCartItem(steamboat);
         boats.deleteItem(sailboat);
 
         assertEquals(1,boats.getCartItems().size());
         assertTrue(boats.getCartItems().contains(testSteamBoat));
-
     }
 
     @Test
-    public void testDeleteItemNull(){
+    public void testDeleteItemNull() {
         assertThrows(NullPointerException.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -78,20 +78,20 @@ public class ShoppingCartTest {
     }
 
     @Test
-    public void testDeleteItemOneLeft(){
+    public void testDeleteItemOneLeft() {
         ShoppingCart boats = new ShoppingCart();
         Item sailboat = new Item();
         boats.addItem(sailboat);
         CartItem testSailBoat = boats.findCartItem(sailboat);
         boats.deleteItem(sailboat);
 
-        assertEquals(null,boats.findCartItem(sailboat));
+        assertEquals(null, boats.findCartItem(sailboat));
         assertFalse(boats.getCartItems().contains(testSailBoat));
-        assertEquals(0,boats.getCartItems().size());
+        assertEquals(0, boats.getCartItems().size());
     }
 
     @Test
-    public void testDeleteItemMultiple(){
+    public void testDeleteItemMultiple() {
         ShoppingCart boats = new ShoppingCart();
         Item sailboat = new Item();
         boats.addItem(sailboat);
@@ -101,18 +101,17 @@ public class ShoppingCartTest {
 
         assertEquals(testSailBoat, boats.findCartItem(sailboat));
         assertTrue(boats.getCartItems().contains(testSailBoat));
-        assertEquals(1,testSailBoat.getCount());
-
+        assertEquals(1, testSailBoat.getCount());
     }
 
     @Test
-    public void testFindCartItemNull(){
+    public void testFindCartItemNull() {
         ShoppingCart boats = new ShoppingCart();
         assertEquals(null, boats.findCartItem(null));
     }
 
     @Test
-    public void testFindCartItem(){
+    public void testFindCartItem() {
         Item sailboat = new Item();
         ShoppingCart boats = new ShoppingCart();
         boats.addItem(sailboat);
@@ -121,7 +120,7 @@ public class ShoppingCartTest {
     }
 
     @Test
-    public void testFindCartItemNotPresent(){
+    public void testFindCartItemNotPresent() {
         Item sailboat = new Item();
         ShoppingCart boats = new ShoppingCart();
 
@@ -129,14 +128,14 @@ public class ShoppingCartTest {
     }
 
     @Test
-    public void testGetCartItemsNull(){
+    public void testGetCartItemsNull() {
         ShoppingCart boats = new ShoppingCart();
         List<CartItem> test = new ArrayList<CartItem>();
         assertEquals(test, boats.getCartItems());
     }
 
     @Test
-    public void testGetCartItems(){
+    public void testGetCartItems() {
         ShoppingCart shoppingCart = new ShoppingCart();
         Item item = new Item();
         CartItem cartItem = new CartItem(item);
@@ -147,12 +146,14 @@ public class ShoppingCartTest {
     }
 
     @Test
-    public void testGetCartItemsMultiple(){
+    public void testGetCartItemsMultiple() {
         ShoppingCart shoppingCart = new ShoppingCart();
         Item item = new Item();
         item.setName("Eilis");
+        assertEquals("Eilis", item.getName());
         Item item1 = new Item();
         item1.setName("Jack");
+        assertEquals("Jack", item1.getName());
 
         shoppingCart.addItem(item);
         shoppingCart.addItem(item1);
@@ -162,6 +163,6 @@ public class ShoppingCartTest {
 
         assertTrue(shoppingCart.getCartItems().contains(cartItem));
         assertTrue(shoppingCart.getCartItems().contains(cartItem1));
-        assertEquals(2,shoppingCart.getCartItems().size());
+        assertEquals(2, shoppingCart.getCartItems().size());
     }
 }
