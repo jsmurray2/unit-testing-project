@@ -48,7 +48,6 @@ public class ItemTest {
         Item item = new Item();
         item.setName("item1");
         assertEquals("item1", item.getName());
-        assertEquals("item1", item.getName());
     }
 
     @Test
@@ -58,7 +57,7 @@ public class ItemTest {
         item.setName("item1");
         assertEquals("item1", item.getName());
         String name = item.getName();
-        assertEquals("item1", name);
+        assertEquals("item1", item.getName());
         assertEquals(name.hashCode(), item.hashCode());
     }
 
