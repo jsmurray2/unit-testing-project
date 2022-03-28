@@ -6,10 +6,17 @@ import csc4700.CartItem;
 import csc4700.Item;
 import csc4700.exceptions.InvalidCountException;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 public class CartItemTest {
    private Item sailboat = new Item();
 
+   @Test
+   public void testCartItem(){
+      CartItem boats = new CartItem(sailboat);
+      assertEquals(sailboat, boats.getItem());
+      assertEquals(0,boats.getCount());
+   }
 
    @Test
    public void incrementCountByOneTest(){
@@ -44,14 +51,15 @@ public class CartItemTest {
    @Test
    public void testDecrementCountByOneLessThanOne(){
       //Test for error thrown when decremented value is less than one
-      CartItem boats = new CartItem(sailboat);
-      boats.setCount(1);
-      try{
-         boats.decrementCountByOne();
-         fail("Expected error");
-      } catch(InvalidCountException e){
-         //Expected
-      }
+
+      assertThrows(InvalidCountException.class, new Executable() {
+         @Override
+         public void execute() throws Throwable {
+            CartItem boats = new CartItem(sailboat);
+            boats.setCount(1);
+            boats.decrementCountByOne();
+         }
+      });
 
    }
 
@@ -70,15 +78,15 @@ public class CartItemTest {
    @Test
    public void testMultipleDecrementCountByOneLessThanOne(){
       //Test for error thrown when decremented value is less than one
-      CartItem boats = new CartItem(sailboat);
-      boats.setCount(1);
-      try{
-         boats.decrementCountByOne();
-         boats.decrementCountByOne();
-         fail("Expected error");
-      } catch(InvalidCountException e){
-         //Expected
-      }
+      assertThrows(InvalidCountException.class, new Executable() {
+         @Override
+         public void execute() throws Throwable {
+            CartItem boats = new CartItem(sailboat);
+            boats.setCount(1);
+            boats.decrementCountByOne();
+            boats.decrementCountByOne();
+         }
+      });
    }
 
    @Test
@@ -175,12 +183,12 @@ public class CartItemTest {
 
    @Test
    public void testSetCountError(){
-      CartItem boats = new CartItem(sailboat);
-      try{
-         boats.setCount(0);
-         fail("Expected error");
-      } catch(InvalidCountException e){
-         //Expected
-      }
+      assertThrows(InvalidCountException.class, new Executable() {
+         @Override
+         public void execute() throws Throwable {
+            CartItem boats = new CartItem(sailboat);
+            boats.setCount(0);
+         }
+      });
    }
 }
