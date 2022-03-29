@@ -14,6 +14,8 @@ public class ShoppingCartTest {
 
     @Test
     public void testAddItemNull() {
+        // Call addItem with null
+        // Assert throws NullPointerException
         assertThrows(NullPointerException.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -25,6 +27,7 @@ public class ShoppingCartTest {
 
     @Test
     public void testAddItemFirstItem() {
+        // Test when first item is added to SHopping Cart
         Item item = new Item();
         ShoppingCart shoppingCart = new ShoppingCart();
         shoppingCart.addItem(item);
@@ -37,6 +40,8 @@ public class ShoppingCartTest {
 
     @Test
     public void testAddItemMultiple() {
+        // Test when multiple addItems are called
+        // Verify count and arrayList are correct
         ShoppingCart boats = new ShoppingCart();
         Item sailboat = new Item();
         boats.addItem(sailboat);
@@ -51,6 +56,8 @@ public class ShoppingCartTest {
 
     @Test
     public void testDeleteItemNotPresent() {
+        // Test deleteItem when item passed is not present
+        // Verify arrayList remains the same
         ShoppingCart boats = new ShoppingCart();
         Item sailboat = new Item();
         sailboat.setName("Eilis");
@@ -68,6 +75,8 @@ public class ShoppingCartTest {
 
     @Test
     public void testDeleteItemNull() {
+        // call deleteItem with null
+        // Assert throws NullPointerException
         assertThrows(NullPointerException.class, new Executable() {
             @Override
             public void execute() throws Throwable {
@@ -79,6 +88,8 @@ public class ShoppingCartTest {
 
     @Test
     public void testDeleteItemOneLeft() {
+        // Test deleteItem
+        // Verify last item is removed from list
         ShoppingCart boats = new ShoppingCart();
         Item sailboat = new Item();
         boats.addItem(sailboat);
@@ -106,12 +117,15 @@ public class ShoppingCartTest {
 
     @Test
     public void testFindCartItemNull() {
+        // Call findCartItem with null
         ShoppingCart boats = new ShoppingCart();
         assertEquals(null, boats.findCartItem(null));
     }
 
     @Test
     public void testFindCartItem() {
+        // Test findCartItem
+        // Assert correct CartItem is returned
         Item sailboat = new Item();
         ShoppingCart boats = new ShoppingCart();
         boats.addItem(sailboat);
@@ -121,6 +135,7 @@ public class ShoppingCartTest {
 
     @Test
     public void testFindCartItemNotPresent() {
+        // Call findCartItem on item not ShoppingCart
         Item sailboat = new Item();
         ShoppingCart boats = new ShoppingCart();
 
@@ -129,6 +144,7 @@ public class ShoppingCartTest {
 
     @Test
     public void testGetCartItemsNull() {
+        // Test empty arrayList is returned
         ShoppingCart boats = new ShoppingCart();
         List<CartItem> test = new ArrayList<CartItem>();
         assertEquals(test, boats.getCartItems());
@@ -136,6 +152,7 @@ public class ShoppingCartTest {
 
     @Test
     public void testGetCartItems() {
+        // Verify correct arrayList is returned
         ShoppingCart shoppingCart = new ShoppingCart();
         Item item = new Item();
         CartItem cartItem = new CartItem(item);
@@ -147,6 +164,7 @@ public class ShoppingCartTest {
 
     @Test
     public void testGetCartItemsMultiple() {
+        // Verify getCartItems return correct arrayList
         ShoppingCart shoppingCart = new ShoppingCart();
         Item item = new Item();
         item.setName("Eilis");
