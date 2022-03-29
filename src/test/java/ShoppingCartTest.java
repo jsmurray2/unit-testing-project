@@ -94,6 +94,7 @@ public class ShoppingCartTest {
         Item sailboat = new Item();
         boats.addItem(sailboat);
         CartItem testSailBoat = boats.findCartItem(sailboat);
+
         boats.deleteItem(sailboat);
 
         assertEquals(null, boats.findCartItem(sailboat));
@@ -103,6 +104,8 @@ public class ShoppingCartTest {
 
     @Test
     public void testDeleteItemMultiple() {
+        // Test deleteItem
+        // Verify item is not completely deleted
         ShoppingCart boats = new ShoppingCart();
         Item sailboat = new Item();
         boats.addItem(sailboat);

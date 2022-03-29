@@ -21,7 +21,7 @@ public class CartItemTest {
    }
 
    @Test
-   public void incrementCountByOneTest() {
+   public void testIncrementCount() {
       // Test for correct increment when called
       Item sailboat = new Item();
       CartItem boats = new CartItem(sailboat);
@@ -149,7 +149,7 @@ public class CartItemTest {
    }
 
    @Test
-   public void testMultipleSetItem() {
+   public void testSetItemMultiple() {
       // Test when multiple setItems are called
       Item sailboat = new Item();
       CartItem boats = new CartItem(sailboat);
@@ -170,7 +170,7 @@ public class CartItemTest {
    }
 
    @Test
-   public void testMultipleSetCount() {
+   public void testSetCountMultiple() {
       // Test when multiple setCounts are called
       Item sailboat = new Item();
       CartItem boats = new CartItem(sailboat);
